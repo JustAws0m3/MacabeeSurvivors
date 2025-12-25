@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c881235hcgixd"]
 
-[ext_resource type="Script" uid="uid://n24jpaiaxx56" path="res://character.gd" id="1_i3pqv"]
+[ext_resource type="Script" uid="uid://n24jpaiaxx56" path="res://player_character.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://gsvx8636s4t0" path="res://icon.svg" id="2_hqtel"]
 [ext_resource type="Script" uid="uid://dob76lg46qa6c" path="res://camera.gd" id="3_sweqy"]
 
@@ -29,6 +29,6 @@ shape = SubResource("RectangleShape2D_1bvp3")
 [node name="Sprite" type="AnimatedSprite2D" parent="Character"]
 sprite_frames = SubResource("SpriteFrames_lquwl")
 
-[node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(0.25, 0.25)
+[node name="Camera" type="Camera2D" parent="Character"]
+zoom = Vector2(0.5, 0.5)
 script = ExtResource("3_sweqy")

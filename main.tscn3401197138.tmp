@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=4 uid="uid://66kts0og2s3m"]
+
+[ext_resource type="PackedScene" uid="uid://c881235hcgixd" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://dkbbo8xegoofu" path="res://Sprites/Tiles/FloorAndWallTilemap.png" id="2_0xm2m"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
+texture = ExtResource("2_0xm2m")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 6.691246, -16, 16, 16, 16, 16, -16, -16, -16, -16, 4.1422005, -16, 16)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 6.691246, -16, 16, 16, 16, 16, -16, -16, -16, -16, 4.1422005, -16, 16)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 6.691246, -16, 16, 16, 16, 16, -16, -16, -16, -16, 4.1422005, -16, 16)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 6.691246, -16, 16, 16, 16, 16, -16, -16, -16, -16, 4.1422005, -16, 16)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 6.691246, -16, 16, 16, 16, 16, -16, -16, -16, -16, 4.1422005, -16, 16)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 6.691246, -16, 16, 16, 16, 16, -16, -16, -16, -16, 4.1422005, -16, 16)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 6.691246, -16, 16, 16, 16, 16, -16, -16, -16, -16, 4.1422005, -16, 16)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 6.691246, -16, 16, 16, 16, 16, -16, -16, -16, -16, 4.1422005, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_1bvp3"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_h2yge")
+
+[node name="Scene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD6//v/AAAAAAAAAAD6//z/AAAAAAAAAAD6//3/AAAAAAAAAAD6//7/AAAAAAAAAAD6////AAAAAAAAAAD6/wAAAAAAAAAAAAD6/wEAAAAAAAAAAAD6/wIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_1bvp3")

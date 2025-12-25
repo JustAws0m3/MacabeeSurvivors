@@ -1,11 +1,15 @@
 extends Camera2D
 
-const STATIC_CAMERA_RADIUS = 1000
+const STATIC_CAMERA_RADIUS = 300
+const SMOOTHING_FACTOR  = 0.0000075
 
-@onready var character: CharacterBody2D = $"../Character"
+var last_global_position = Vector2.ZERO
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var position_delta = position.distance_to(character.position)
+	global_position = last_global_position
+	
+	var position_delta = global_position.distance_to(get_parent().position)
 	if position_delta > STATIC_CAMERA_RADIUS:
-		position -= (position - character.position) * pow(position_delta - STATIC_CAMERA_RADIUS,1.25) * 0.00001
+		position -= (global_position - get_parent().position) * pow(position_delta - STATIC_CAMERA_RADIUS,1.25) * SMOOTHING_FACTOR
+		
+	last_global_position = global_position
