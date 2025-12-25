@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce5bmdtjeg3s0"]
+
+[ext_resource type="Script" uid="uid://c8omafo0lk5dh" path="res://enemy_character.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://gsvx8636s4t0" path="res://icon.svg" id="2_qi2p4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7mycd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qi2p4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_4gyqm")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7mycd")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

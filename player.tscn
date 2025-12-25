@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://gsvx8636s4t0" path="res://icon.svg" id="2_hqtel"]
 [ext_resource type="Script" uid="uid://dob76lg46qa6c" path="res://camera.gd" id="3_sweqy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_lquwl"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -17,18 +17,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="Node2D"]
-
-[node name="Character" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_i3pqv")
 
-[node name="Collision" type="CollisionShape2D" parent="Character"]
+[node name="Collision" type="CollisionShape2D" parent="."]
 scale = Vector2(5, 5)
-shape = SubResource("RectangleShape2D_1bvp3")
+shape = SubResource("RectangleShape2D_i3pqv")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Character"]
-sprite_frames = SubResource("SpriteFrames_lquwl")
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hqtel")
 
-[node name="Camera" type="Camera2D" parent="Character"]
+[node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("3_sweqy")
