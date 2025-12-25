@@ -17,6 +17,8 @@ animations = [{
 }]
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_4gyqm")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
@@ -26,4 +28,7 @@ shape = SubResource("RectangleShape2D_lquwl")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7mycd")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="Navigation" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+
+[node name="RayCast" type="RayCast2D" parent="."]

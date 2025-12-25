@@ -1,18 +1,41 @@
 extends CharacterBody2D
 
-@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+@onready var navigation: NavigationAgent2D = $Navigation
+@onready var ray_cast: RayCast2D = $RayCast
 
-const SPEED = 500.0
+const SPEED = 250.0
 
 var player: Node2D
 
+var target: Node2D
+var locked_on_target = false
+
 func _ready() -> void:
 	player = get_tree().current_scene.find_child("Player") as Node2D
-	navigation_agent_2d.target_position = player.position
+	target = player
+	navigation.target_position = player.position
 
 func _physics_process(delta: float) -> void:
-	if navigation_agent_2d.is_target_reached():
-		navigation_agent_2d.target_position = player.position
+	# Determine if the enemy should lock on to a target
+	ray_cast.target_position = to_local(target.position)
+	if ray_cast.get_collider() != null && ray_cast.get_collider() == player:
+		rush_target()
+		locked_on_target = true
 	else:
-		var nav_point_direction = to_local(navigation_agent_2d.get_next_path_position())
+		navigate_to_target()
+		locked_on_target = false
+		
+func rush_target():
+	var direction = to_local(target.position).normalized()
+	velocity = direction * SPEED
+	move_and_slide()
+		
+func navigate_to_target():
+	if navigation.is_target_reached() or locked_on_target:
+		navigation.target_position = target.position
+
+	var direction = to_local(navigation.get_next_path_position()).normalized()
+	velocity = direction * SPEED
+	move_and_slide()
+
 	
