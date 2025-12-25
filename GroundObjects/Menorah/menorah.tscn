@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctlaroyu8g3q1"]
+
+[ext_resource type="Script" uid="uid://mgn4f6jy7lov" path="res://GroundObjects/Menorah/menorah.gd" id="1_6cwyp"]
+[ext_resource type="Texture2D" uid="uid://cgmui73j4nhsn" path="res://Sprites/Interactable/MenorahFull.png" id="1_t6w2e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+
+[node name="Menorah" type="Node2D"]
+script = ExtResource("1_6cwyp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_t6w2e")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_lquwl")
