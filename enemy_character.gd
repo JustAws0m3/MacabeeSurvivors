@@ -21,9 +21,11 @@ func _physics_process(delta: float) -> void:
 	if ray_cast.get_collider() != null && ray_cast.get_collider() == player:
 		rush_target()
 		locked_on_target = true
+		print("locked",target.name)
 	else:
 		navigate_to_target()
 		locked_on_target = false
+		print("unlocked",target.name)
 		
 func rush_target():
 	var direction = to_local(target.position).normalized()
